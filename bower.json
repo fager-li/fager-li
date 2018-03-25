@@ -1,0 +1,21 @@
+{
+  "name": "fagerli.design",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Isaac Scheeweis <isaac.fagerli@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/fager-li/nyportfolio",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Flowtype.js": "flowtype#^1.1.0"
+  }
+}

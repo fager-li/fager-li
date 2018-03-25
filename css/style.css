@@ -1,0 +1,71 @@
+@font-face {
+    font-family: lapidar;
+    src: url(../assets/academica.woff);
+}
+
+body {
+    
+    padding: 0px,200px,0px,0px;
+    /*background-color: #000000;*/
+    margin: 0px,0px,0px,0px;
+}
+
+#desc {
+ 
+    color: gray;
+    
+}
+
+p {
+ 
+
+    position: absolute;
+    top:0px;
+    z-index: -200;
+    font-family: lapidar;
+    padding: 20px,20ox,20px,20px;
+    
+}
+
+.pwrap {
+    
+
+  
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 60px;
+    padding-top: 20px;
+    
+    
+}
+
+#plane {
+ 
+    width: 40%;
+  
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    top:100px;
+    left: 100px;
+    z-index: -10;
+    padding-top: 40%;
+    
+}
+
+#detector {
+    
+    width: 80vw;    
+    height: 100vh;
+    margin 0 auto;
+    text-align: center;
+    z-index: 1000;
+}
+
+img {
+ 
+    position: relative;
+    width: 100%;
+    
+}

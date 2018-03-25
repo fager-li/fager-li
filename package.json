@@ -1,0 +1,22 @@
+{
+  "name": "nyportfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fager-li/nyportfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fager-li/nyportfolio/issues"
+  },
+  "homepage": "https://github.com/fager-li/nyportfolio#readme",
+  "dependencies": {
+    "flowtype": "^2.0.0"
+  }
+}
