@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/fager-li/nyportfolio#readme",
   "dependencies": {
-    "flowtype": "^2.0.0"
+    "flowtype": "^2.0.0",
+    "three.js": "^0.77.1"
   }
 }
