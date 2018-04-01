@@ -1,4 +1,9 @@
-
+body {
+ 
+    margin: 0;
+    padding: 0;
+    
+}
 
 
 
@@ -30,7 +35,8 @@ canvas {
         box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-   background-image: url('https://ssli.ulximg.com/image/740x493/cover/1503240426_a64716ab7f41a268c146be0923ccfe97.jpg/b1655c4ddff3d91623a4bd985b542b34/1503240421_669cfea120fadfb2170d2f99fe942bf7.jpg')
+
+    /*   background-image: url('https://ssli.ulximg.com/image/740x493/cover/1503240426_a64716ab7f41a268c146be0923ccfe97.jpg/b1655c4ddff3d91623a4bd985b542b34/1503240421_669cfea120fadfb2170d2f99fe942bf7.jpg')*/
     
 }
 
