@@ -1,3 +1,5 @@
+
+
 //calculate full-width/height view
 const visibleHeightAtZDepth = ( depth, camera ) => {
   // compensate for cameras not positioned at z=0
@@ -22,7 +24,8 @@ const visibleWidthAtZDepth = ( depth, camera ) => {
 //initial variables
 var parent, plane1, plane2, plane3,plane4, pivot1, pivot2, pivot3, pivot4;
 var filler = document.getElementById('filler');
-var zdepth = -1500;
+var zdepth = -500;
+
 //set the renderer
 var csrenderer = new THREE.CSS3DRenderer();
 document.body.appendChild( csrenderer.domElement );
@@ -32,6 +35,20 @@ csrenderer.setSize(window.innerWidth, window.innerHeight);
 var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 3000);
 camera.position.set( 0, 0, 20 );
 
+//orbitControls
+var controls = new THREE.OrbitControls( camera );
+controls.target.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/2;
+controls.minPolarAngle = Math.PI/2; 
+controls.maxPolarAngle = Math.PI/2; 
+
+controls.minAzimuthAngle = - Infinity; // radians
+controls.maxAzimuthAngle = Infinity; // radians
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.rotateSpeed = 0.1;
+controls.enableZoom = false;
+controls.enablePan = false;
+
 //scene
 var scene = new THREE.Scene();
 
@@ -39,8 +56,6 @@ var scene = new THREE.Scene();
 parent = new THREE.CSS3DObject(filler);
 scene.add(parent);
 parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/2;
-
-
 
 
 //Create pivots
@@ -59,7 +74,7 @@ parent.add(pivot2);
 parent.add(pivot3);
 parent.add(pivot4);
 
-//grab an HTML element, set styling
+//grab HTML elements, set styling
 var domElement = document.getElementById("introtext");
 domElement.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
 
@@ -85,10 +100,10 @@ plane2 = new THREE.CSS3DObject(domElement2);
 plane3 = new THREE.CSS3DObject(domElement3);
 plane4 = new THREE.CSS3DObject(domElement4);
 
-plane1.position.z = visibleWidthAtZDepth(zdepth, camera)/2;
-plane2.position.z = visibleWidthAtZDepth(zdepth, camera)/2;
-plane3.position.z = visibleWidthAtZDepth(zdepth, camera)/2;
-plane4.position.z = visibleWidthAtZDepth(zdepth, camera)/2;
+plane1.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+plane2.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+plane3.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+plane4.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
 
 //add HTML Elements to pivots
 pivot1.add(plane1);
@@ -103,11 +118,11 @@ scene.add(parent, camera);
 //Push to renderer
 render();
 function render() {
-	
-    //parent.rotation.y += 0.01;
+	requestAnimationFrame(render);
+    controls.update();
     csrenderer.render(scene, camera);
 
-	requestAnimationFrame(render);
+	
 }
 
 
