@@ -45,8 +45,6 @@ obj.position.z = -500;
 
 
 
-
-
 //add camera and HTML element to scene
 scene.add(obj, camera);
 
