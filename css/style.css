@@ -2,16 +2,31 @@ body {
  
     margin: 0;
     padding: 0;
-    background-image: url("../assets/img/bg-grid/Artboard%201@2x.png");
-    background-size: contain;
+    background-image: url("../assets/img/bg-grid/2-noedge.svg");
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: top left;
+
+}
+
+body:hover {
+ 
+    cursor: grab;
+    
 }
 
 #introtext {
     
     padding: 32px;
     background-color: whitesmoke;
+    
 
+    
+}
+
+#introtext:hover {
+    
+    cursor: grab;
     
 }
 
@@ -42,21 +57,24 @@ canvas {
 
 @font-face {
     font-family: berlingske;
-    src: url(../assets/fonts/GT-Cinetype-Regular.ttf);
+    src: url(../assets/fonts/RomanaBT.ttf);
 }
 
 @font-face {
  
     font-family: phonetics;
-    src: url(../assets/fonts/Junicode-BoldCondensed.ttf);
+    src: url(../assets/fonts/RomanaBT.ttf);
     
 }
 
 #phonetics {
  
-    font-family: serif;
-    font-size: 16px;
-    line-height: 0px;
+    font-family: phonetics;
+    font-size: 10px;
+    line-height: 24px;
+    position: relative;
+    vertical-align: middle;
+    color: red;
     
 }
 
