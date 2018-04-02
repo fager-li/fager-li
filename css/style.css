@@ -2,12 +2,24 @@ body {
  
     margin: 0;
     padding: 0;
-    background-color: slategray;
+    background-image: url("../assets/img/bg-grid/Artboard%201@2x.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #introtext {
- 
     
+    padding: 32px;
+    background-color: whitesmoke;
+
+    
+}
+
+#introtext2 {
+    
+    padding: 32px;
+    background-color: red;
+   
     
 }
 
@@ -16,27 +28,48 @@ canvas {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    top: 0;
+
     
 }
 
 @font-face {
-    font-family: lapidar;
-    src: url(../assets/academica.woff);
+    font-family: berlingske;
+    src: url(../assets/fonts/GT-Cinetype-Regular.ttf);
+}
+
+@font-face {
+ 
+    font-family: phonetics;
+    src: url(../assets/fonts/Junicode-BoldCondensed.ttf);
+    
+}
+
+#phonetics {
+ 
+    font-family: serif;
+    font-size: 16px;
+    line-height: 0px;
+    
 }
 
 .introp {
  
-    font-family: lapidar;
-    font-size: 100px;
-
+    font-family: berlingske;
+    font-size: 32px;
+    line-height: 38px;
+    color: black;
+    padding: 0px;
+    margin: 0px;
 }
+
+
 
 #backgroundshit {
     
     position: absolute;
     z-index: -100;
-    font-family: lapidar;
+    color: white;
+    font-family: berlingske;
     font-size: 100px;
     
 }
@@ -44,11 +77,12 @@ canvas {
 
 .contentFrames {
  
-   border: 10px solid black;*/
+
         box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    background-color: white;
+    background-color: whitesmoke;
+    padding: 0px;
 
     /*   background-image: url('https://ssli.ulximg.com/image/740x493/cover/1503240426_a64716ab7f41a268c146be0923ccfe97.jpg/b1655c4ddff3d91623a4bd985b542b34/1503240421_669cfea120fadfb2170d2f99fe942bf7.jpg')*/
     
