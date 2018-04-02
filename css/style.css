@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-image: url("../assets/img/bg-grid/Artboard%201@2x.png");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 
@@ -16,6 +16,14 @@ body {
 }
 
 #introtext2 {
+    
+    padding: 32px;
+    background-color: whitesmoke;
+   
+    
+}
+
+#introtext3 {
     
     padding: 32px;
     background-color: red;
@@ -77,7 +85,7 @@ canvas {
 
 .contentFrames {
  
-
+    border: 1px solid red; 
         box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -89,3 +97,7 @@ canvas {
 }
 
 
+
+.portimg {
+    max-height: 70%;
+}
