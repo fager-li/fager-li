@@ -1,5 +1,5 @@
 body {
- 
+
     margin: 0;
     padding: 0;
     background-image: url("../assets/img/bg-grid/2-noedge.svg");
@@ -10,50 +10,51 @@ body {
 }
 
 body:hover {
- 
+
     cursor: grab;
-    
+
 }
 
 #introtext {
-    
+
     padding: 32px;
     background-color: red;
-    
+    overflow-y: scroll;
 
-    
+
 }
 
 #introtext:hover {
-    
+
     cursor: grab;
-    
+
 }
 
 #introtext2 {
-    
+
     padding: 32px;
-    background-color: whitesmoke;
-   
-    
+    background-color: rgba(100,100,100,0.2);
+
+
 }
 
 #introtext3 {
-    
-    padding: 32px;
+
+
     background-color: blue;
-    overflow-y: scroll;
-   
-    
+  
+
+
+
 }
 
 canvas {
- 
+
     width: 100vw;
     height: 100vh;
     position: absolute;
 
-    
+
 }
 
 @font-face {
@@ -64,32 +65,31 @@ canvas {
 }
 
 @font-face {
- 
+
     font-family: phonetics;
-    src: url("../assets/fonts/Junicode-BoldCondensed.ttf") format("truetype")
-;
-    
+    src: url("../assets/fonts/Junicode-BoldCondensed.ttf") format("truetype");
+
 }
 
 #phonetics {
- 
+
     font-family: phonetics;
     font-size: 10px;
     line-height: 24px;
     position: relative;
     vertical-align: middle;
     color: red;
-    
+
 }
 
 .att {
-    
-    font-family: phonetics; !important
-    
+
+    font-family: phonetics;
+    !important
 }
 
 .introp {
- 
+
     font-family: berlingske;
     font-size: 28px;
     line-height: 38px;
@@ -101,28 +101,25 @@ canvas {
 
 
 #backgroundshit {
-    
+
     position: absolute;
     z-index: -100;
     color: white;
     font-family: berlingske;
     font-size: 100px;
-    
+
 }
 
 
 .contentFrames {
- 
-    border: 1px solid red; 
-        box-sizing: border-box;
+
+    border: 1px solid red;
+    box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    background-color: whitesmoke;
+ 
     padding: 0px;
-   
 
-    /*   background-image: url('https://ssli.ulximg.com/image/740x493/cover/1503240426_a64716ab7f41a268c146be0923ccfe97.jpg/b1655c4ddff3d91623a4bd985b542b34/1503240421_669cfea120fadfb2170d2f99fe942bf7.jpg')*/
-    
 }
 
 
@@ -131,18 +128,91 @@ canvas {
     max-height: 70%;
 }
 
-.rotate {
-        
-        writing-mode: tb-rl;
-       
+
+
+.contactLarge {
+    font-family: berlingske;
+    font-size: 32px;
+    line-height: 38px;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin-top: 0px;
+
+
+
+}
+
+.profile {
+    position: absolute;
+    top: 10%;
+    width: 30%;
+    right: 5%;
     
 }
 
-.contactLarge {
-        font-family: berlingske;
-    font-size: 28px;
-    line-height: 38px;
-    color: black;
-    padding: 0px;
-    margin: 0px;
+#innerwrapper4 {
+   
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.testingscroll {
+    width: 20%;
+    font-family: berlingske;
+}
+
+@font-face {
+    
+    src: url("../assets/Lapidar-Light.otf");
+
+
+
+    font-family: txt;
+    
+}
+
+.current {
+    font-family: txt;
+    font-size: 10px;
+    margin-bottom: 32px;
+    padding-bottom:0px;
+    flex-shrink: 1;
+    width: 100%;
+}
+
+
+
+.description {
+    font-family: txt;
+    font-size: 10px;
+    flex-shrink: 1;
+    color: white;
+    width: 60%;
+    margin-top: 32px;
+    padding-top:0px;
+    padding-right: 32px;
+    
+}
+
+.portContainer {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/2-1.png);
+ flex-basis:auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-grow: 1;
+}
+
+.flexVert {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  
 }
