@@ -1,5 +1,3 @@
-
-
 //calculate full-width/height view
 const visibleHeightAtZDepth = ( depth, camera ) => {
   // compensate for cameras not positioned at z=0
@@ -125,6 +123,15 @@ function render() {
 	
 }
 
+//portfolio-slider
+var number = 1;
+function getURL(index) {
+ 
+    return "../img/" + index + ".png";
+    
+}
 
-
-//https://stackoverflow.com/questions/15214582/how-do-i-rotate-some-moons-around-a-planet-with-three-js
+$('#introtext2').click(function() {
+number++;
+document.getElementById('port').style.backgroundImage = 'url('+ getURL(number)+')';  
+});
