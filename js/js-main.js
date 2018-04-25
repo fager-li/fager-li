@@ -75,12 +75,10 @@ parent.add(pivot4);
 //grab HTML elements, set styling
 var domElement = document.getElementById("introtext");
 domElement.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
-
 domElement.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
 
 var domElement2 = document.getElementById("introtext2");
 domElement2.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
-console.log(visibleWidthAtZDepth( zdepth, camera));
 domElement2.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
 
 var domElement3 = document.getElementById("introtext3");
@@ -132,38 +130,49 @@ var number = 0;
 //}
 var portfolioData = [
     {title:"Fiktivt Forlag", image:'url("../img/1.png")', desc:"Fiktivt Forlag is a student publisher that publishes and advances interests of students who are involved in creative and commercial writing. I have designed their website as a lightweight and barebones experience, designed with the students and focus on the text and content in mind."},
-    {title:"label", image:"true", desc:"true"},
-    {title:"label", image:"true", desc:"true"},
-    {title:"label", image:"true", desc:"true"},
+    
+    {title:"Westerdals Study Catalogue", image:'url("../img/2.png")', desc:"Me and Fiona Jansson designed the 2016 study catalogue for Westerdals Oslo ACT. The catalogue was sendt via mail to potential applicants, as well as being displayed at several large education-related conferences. In the spirit of the schools reputation, we were attempting to merge a playful style with the serious and exclusive."},
+    
+    {title:"label3", image:'url("../img/3.png")', desc:"true"},
+    
+    {title:"label4", image:'url("../img/4.png")', desc:"true"},
+    
+    {title:"Fiktivt Forlag", image:'url("../img/1.png")', desc:"Fiktivt Forlag is a student publisher that publishes and advances interests of students who are involved in creative and commercial writing. I have designed their website as a lightweight and barebones experience, designed with the students and focus on the text and content in mind."},
+    
+    {title:"label2", image:'url("../img/2.png")', desc:"true"},
+    
     ]
 
 //right field
 $('#right').click(function() {
     
-    if (number < portfolioData.length) {
-    
-        number++;
-        
-} else if (number == portfolioData.length) {
+    if (number+1 == portfolioData.length) {
     
     number = 0;
     
-}
+} else if (number+1 <= portfolioData.length) {
+    
+        number++;
+        
+} 
 
 document.getElementById('port').style.backgroundImage = portfolioData[number].image; 
 document.getElementById('title').textContent = portfolioData[number].title; 
 document.getElementById('desc').textContent = portfolioData[number].desc; 
+    
+    console.log("right"+ " " + number + ", length is" + portfolioData.length);
 
 });
 
 //left field
 $('#left').click(function() {
     
-    if (number = 0) {
+    if (number == 0) {
     
-        number = portfolioData.length;
+        number = portfolioData.length-1;
         
-} else if (number <= portfolioData.length) {
+} 
+    else if (number <= portfolioData.length) {
     
     number--;
     
@@ -172,7 +181,8 @@ $('#left').click(function() {
 document.getElementById('port').style.backgroundImage = portfolioData[number].image; 
 document.getElementById('title').textContent = portfolioData[number].title; 
 document.getElementById('desc').textContent = portfolioData[number].desc; 
-
+    console.log("left"+ " " + number)
+    
 });
 
 
