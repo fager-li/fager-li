@@ -123,15 +123,59 @@ function render() {
 	
 }
 
-//portfolio-slider
-var number = 1;
-function getURL(index) {
- 
-    return "../img/" + index + ".png";
+//site navigation
+var number = 0;
+//function getURL(index) {
+// 
+//    return "../img/" + index + ".png";
+//    
+//}
+var portfolioData = [
+    {title:"Fiktivt Forlag", image:'url("../img/1.png")', desc:"Fiktivt Forlag is a student publisher that publishes and advances interests of students who are involved in creative and commercial writing. I have designed their website as a lightweight and barebones experience, designed with the students and focus on the text and content in mind."},
+    {title:"label", image:"true", desc:"true"},
+    {title:"label", image:"true", desc:"true"},
+    {title:"label", image:"true", desc:"true"},
+    ]
+
+//right field
+$('#right').click(function() {
+    
+    if (number < portfolioData.length) {
+    
+        number++;
+        
+} else if (number == portfolioData.length) {
+    
+    number = 0;
     
 }
 
-$('#introtext2').click(function() {
-number++;
-document.getElementById('port').style.backgroundImage = 'url('+ getURL(number)+')';  
+document.getElementById('port').style.backgroundImage = portfolioData[number].image; 
+document.getElementById('title').textContent = portfolioData[number].title; 
+document.getElementById('desc').textContent = portfolioData[number].desc; 
+
 });
+
+//left field
+$('#left').click(function() {
+    
+    if (number = 0) {
+    
+        number = portfolioData.length;
+        
+} else if (number <= portfolioData.length) {
+    
+    number--;
+    
+}
+
+document.getElementById('port').style.backgroundImage = portfolioData[number].image; 
+document.getElementById('title').textContent = portfolioData[number].title; 
+document.getElementById('desc').textContent = portfolioData[number].desc; 
+
+});
+
+
+
+
+
