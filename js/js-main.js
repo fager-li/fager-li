@@ -187,5 +187,7 @@ document.getElementById('desc').textContent = portfolioData[number].desc;
 
 
 
-
+document.getElementById('port').style.backgroundImage = portfolioData[number].image; 
+document.getElementById('title').textContent = portfolioData[number].title; 
+document.getElementById('desc').textContent = portfolioData[number].desc; 
 
