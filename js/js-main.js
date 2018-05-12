@@ -129,15 +129,19 @@ var number = 0;
 //    
 //}
 var portfolioData = [
-    {title:"Fiktivt Forlag", image:'url("../img/1.png")', desc:"Fiktivt Forlag is a student publisher that publishes and advances interests of students who are involved in creative and commercial writing. I have designed their website as a lightweight and barebones experience, designed with the students and focus on the text and content in mind."},
+    {title:"Fiktivt Forlag", image:'url("../img/1.png")', desc:"Website and identity for Fiktivt Forlag, student publisher."},
     
-    {title:"Westerdals Study Catalogue", image:'url("../img/2.png")', desc:"Me and Fiona Jansson designed the 2016 study catalogue for Westerdals Oslo ACT. The catalogue was sendt via mail to potential applicants, as well as being displayed at several large education-related conferences. In the spirit of the schools reputation, we were attempting to merge a playful style with the serious and exclusive."},
+    {title:"Westerdals Study Catalogue", image:'url("../img/2.png")', desc:"2016 study catalogue of Westerdals Oslo ACT. Designed with Fiona Jansson."},
+    
+     {title:"Westerdals Study Catalogue", image:'url("../img/2.png")', desc:"2016 study catalogue of Westerdals Oslo ACT. Designed with Fiona Jansson. 2"},
+    
+    {title:"Westerdals Study Catalogue", image:'url("../img/2.png")', desc:"2016 study catalogue of Westerdals Oslo ACT. Designed with Fiona Jansson. 3"},
     
     {title:"label3", image:'url("../img/3.png")', desc:"true"},
     
     {title:"label4", image:'url("../img/4.png")', desc:"true"},
     
-    {title:"Fiktivt Forlag", image:'url("../img/1.png")', desc:"Fiktivt Forlag is a student publisher that publishes and advances interests of students who are involved in creative and commercial writing. I have designed their website as a lightweight and barebones experience, designed with the students and focus on the text and content in mind."},
+    {title:"Fiktivt Forlag", image:'url("../img/1.png")', desc:"Website and identity for Fiktivt Forlag, student publisher."},
     
     {title:"label2", image:'url("../img/2.png")', desc:"true"},
     
@@ -176,7 +180,7 @@ $('#left').click(function() {
     
     number--;
     
-}
+    }
 
 document.getElementById('port').style.backgroundImage = portfolioData[number].image; 
 document.getElementById('title').textContent = portfolioData[number].title; 

@@ -236,9 +236,10 @@ position: absolute;
 
 #left {
     left: 0;
-    cursor: all-scroll;
+    cursor: w-resize;
 }
 
 #right {
     right: 0;
+    cursor: e-resize;
 }
