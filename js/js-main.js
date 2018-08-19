@@ -1,3 +1,4 @@
+
 //calculate full-width/height view
 const visibleHeightAtZDepth = ( depth, camera ) => {
   // compensate for cameras not positioned at z=0
@@ -29,23 +30,87 @@ var csrenderer = new THREE.CSS3DRenderer();
 document.body.appendChild( csrenderer.domElement );
 csrenderer.setSize(window.innerWidth, window.innerHeight);
 
+window.addEventListener('resize', function(){
+csrenderer.setSize(window.innerWidth, window.innerHeight);
+});
+
 //camera
 var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 3000);
 camera.position.set( 0, 0, 20 );
 
-//orbitControls
-var controls = new THREE.OrbitControls( camera );
-controls.target.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/2;
-controls.minPolarAngle = Math.PI/2; 
-controls.maxPolarAngle = Math.PI/2; 
+window.addEventListener('resize', function(){
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+});
 
-controls.minAzimuthAngle = - Infinity; // radians
-controls.maxAzimuthAngle = Infinity; // radians
-controls.enableDamping = true;
-controls.dampingFactor = 0.05;
-controls.rotateSpeed = 0.1;
-controls.enableZoom = false;
-controls.enablePan = false;
+//orbitControls
+    //removed oribit controls due to conflict with math
+
+//rotation math
+var targetRotationX = 0.5;
+var targetRotationOnMouseDownX = 0;
+
+var targetRotationY = 0.2;
+var targetRotationOnMouseDownY = 0;
+
+var mouseX = 0;
+var mouseXOnMouseDown = 0;
+
+var mouseY = 0;
+var mouseYOnMouseDown = 0;
+
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
+
+var slowingFactor = 0.25;
+
+document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+
+
+            function onDocumentMouseDown( event ) {
+
+                event.preventDefault();
+
+                document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+                document.addEventListener( 'mouseup', onDocumentMouseUp, false );
+                document.addEventListener( 'mouseleave', onDocumentMouseOut, false );
+
+                mouseXOnMouseDown = event.clientX - windowHalfX;
+                targetRotationOnMouseDownX = targetRotationX;
+
+                mouseYOnMouseDown = event.clientY - windowHalfY;
+                targetRotationOnMouseDownY = targetRotationY;
+                
+            }
+
+            function onDocumentMouseMove( event ) {
+
+                mouseX = event.clientX - windowHalfX;
+
+                targetRotationX = ( mouseX - mouseXOnMouseDown ) * 0.0045;
+
+                mouseY = event.clientY - windowHalfY;
+
+                targetRotationY = ( mouseY - mouseYOnMouseDown ) * 0.00025;
+                mouseXOnMouseDown = event.clientX - windowHalfX;
+            }
+
+            function onDocumentMouseUp( event ) {
+
+                document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+                document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+                document.removeEventListener( 'mouseleave', onDocumentMouseOut, false );
+                console.log("mouseup");
+            }
+
+            function onDocumentMouseOut( event ) {
+
+                document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+                document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+                document.removeEventListener( 'mouseleave', onDocumentMouseOut, false );
+                console.log("mouseout");
+            }
+
 
 //scene
 var scene = new THREE.Scene();
@@ -55,6 +120,9 @@ parent = new THREE.CSS3DObject(filler);
 scene.add(parent);
 parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/2;
 
+window.addEventListener('resize', function(){
+parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/2;
+});
 
 //Create pivots
 var pivot1 = new THREE.CSS3DObject(filler);
@@ -74,20 +142,47 @@ parent.add(pivot4);
 
 //grab HTML elements, set styling
 var domElement = document.getElementById("introtext");
+var domElement2 = document.getElementById("introtext2");
+var domElement3 = document.getElementById("introtext3");
+var domElement4 = document.getElementById("introtext4");
+
+
 domElement.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
 domElement.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
 
-var domElement2 = document.getElementById("introtext2");
+
 domElement2.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
 domElement2.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
 
-var domElement3 = document.getElementById("introtext3");
+
 domElement3.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
 domElement3.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
 
-var domElement4 = document.getElementById("introtext4");
+
 domElement4.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
 domElement4.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
+
+window.addEventListener('resize', function(){
+    
+    domElement.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
+    domElement.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
+
+
+    domElement2.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
+    domElement2.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
+
+
+    domElement3.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
+    domElement3.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
+
+
+domElement4.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
+domElement4.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
+    
+console.log("height:" + domElement4.style.height);
+    
+});
+
 
 
 //store HTML element in variable, set position
@@ -100,6 +195,23 @@ plane1.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
 plane2.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
 plane3.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
 plane4.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+
+window.addEventListener('resize', function(){
+    
+plane1.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+plane2.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+plane3.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+plane4.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+
+    
+});
+
+window.addEventListener('resize', function(){
+    
+    
+
+    
+});
 
 //add HTML Elements to pivots
 pivot1.add(plane1);
@@ -115,13 +227,21 @@ scene.add(parent, camera);
 render();
 function render() {
 	requestAnimationFrame(render);
-    controls.update();
+/*    rotateAroundWorldAxis(parent, new THREE.Vector3(0, 1, 0), targetRotationX);*/
+
+
+    targetRotationY = targetRotationY * (1 - slowingFactor);
+    targetRotationX = targetRotationX * (1 - slowingFactor);
+    parent.rotation.y += targetRotationX;
+    //console.log(targetRotationX);
+
     csrenderer.render(scene, camera);
 
 	
 }
 
 //site navigation
+
 var number = 0;
 //function getURL(index) {
 // 
@@ -129,7 +249,7 @@ var number = 0;
 //    
 //}
 var portfolioData = [
-    {title:"Fiktivt Forlag", image:'url("../img/1.png")', desc:"Website and identity for Fiktivt Forlag, student publisher."},
+    {title:"Fiktivt Forlag", image:'url("../img/2.png")', desc:"Website and identity for Fiktivt Forlag, student publisher."},
     
     {title:"Westerdals Study Catalogue", image:'url("../img/2.png")', desc:"2016 study catalogue of Westerdals Oslo ACT. Designed with Fiona Jansson."},
     
@@ -194,4 +314,5 @@ document.getElementById('desc').textContent = portfolioData[number].desc;
 document.getElementById('port').style.backgroundImage = portfolioData[number].image; 
 document.getElementById('title').textContent = portfolioData[number].title; 
 document.getElementById('desc').textContent = portfolioData[number].desc; 
+
 
