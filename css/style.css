@@ -7,6 +7,9 @@
 
 */
 
+body {
+    transition: 0.3s;
+}
 
 *:hover {
     
@@ -27,14 +30,14 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top left;
-    background-color: black;
+    background-color: rgb(20,20,20);
 }
 
 
 
 #introtext {
 
-    padding: 32px;
+    padding: 40px;
     background-color: white;
     overflow-y: hidden;
 
@@ -80,7 +83,8 @@ canvas {
 @font-face {
 
     font-family: phonetics;
-    src: url("../assets/fonts/Junicode-BoldCondensed.ttf") format("truetype");
+    src: url("../assets/academica.woff") format("woff");
+
 
 }
 
@@ -102,13 +106,21 @@ canvas {
 }
 
 .introp {
-    font-family: lapidar;
+    font-family: phonetics;
     font-size: 16px;
     line-height: 22px;
-    color: white;
+    color: whitesmoke;
     padding: 0px;
     margin: 0px;
-    width: 70%
+    width: 60%
+}
+
+.workedwith {
+    font-family: lapidar;
+    font-size: 10px;
+    line-height: 14px;
+    color: whitesmoke;
+    width: 40%;
 }
 
 
