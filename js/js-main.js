@@ -119,6 +119,7 @@ var scene = new THREE.Scene();
 parent = new THREE.CSS3DObject(filler);
 scene.add(parent);
 parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/2;
+parent.rotation.y = -1.5708;
 
 window.addEventListener('resize', function(){
 parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/2;
@@ -227,9 +228,6 @@ scene.add(parent, camera);
 render();
 function render() {
 	requestAnimationFrame(render);
-/*    rotateAroundWorldAxis(parent, new THREE.Vector3(0, 1, 0), targetRotationX);*/
-
-
     targetRotationY = targetRotationY * (1 - slowingFactor);
     targetRotationX = targetRotationX * (1 - slowingFactor);
     parent.rotation.y += targetRotationX;
