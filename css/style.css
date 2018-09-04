@@ -37,7 +37,7 @@ body {
 
 #introtext {
 
-    padding: 40px;
+    padding: 32px;
     background-color: white;
     overflow-y: hidden;
 
@@ -163,8 +163,8 @@ canvas {
     position: absolute;
     margin-top: 0px;
     display: inline-block;
-    top: 10%;
-    left: 10%;
+    top: 20%;
+    right: 10%;
 }
 
 .me {
@@ -172,8 +172,8 @@ canvas {
     display: inline-block;
     align-self: center;
     position: absolute;
-    right: 10%;
-    top: 10%;
+    left: 35%;
+    top: 20%;
     z-index: -1;
 }
 
