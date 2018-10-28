@@ -47,7 +47,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top left;
-    background-color: black;
+    background-color: darkgray;
 
 }
 
@@ -56,8 +56,9 @@ body {
 #introtext {
 
     padding: 32px;
-    background-color: #E2C044;
+
     overflow-y: hidden;
+        background-color:lightyellow;
 }
 
 
@@ -74,7 +75,7 @@ body {
     font-family: mediumT;
     font-size: 16px;
     line-height: 22px;
-    color: #6247AA;
+    color: black;
     padding: 0px;
     margin: 0px 0px 0px 0px;
     width: 100%;
