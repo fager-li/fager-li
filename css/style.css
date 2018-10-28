@@ -58,7 +58,7 @@ body {
     padding: 32px;
 
     overflow-y: hidden;
-        background-color:lightyellow;
+     background-color:#EEEE46;
 }
 
 
@@ -101,12 +101,12 @@ body {
 #introtext2 {
 
     padding: 32px;
-   background-color: white;
+   background-color: black;
 
 }
 
 #introtext3 {
-    background-color: white;
+    background-color: #4655EE;
 }
 
 canvas {
@@ -142,7 +142,7 @@ canvas {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     padding: 0px;
-    border: 1px solid blue;
+
 }
 
 
