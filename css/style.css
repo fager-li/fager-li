@@ -7,30 +7,48 @@
 
 */
 
+@font-face {
+    font-family: regularT;
+    src:url("../assets/fonts/theinhardt-regular.ttf") format("truetype");
+
+}
+
+@font-face {
+
+    font-family: mediumT;
+    src: url("../assets/fonts/Theinhardt-Medium.ttf") format("truetype");
+
+
+}
+
 body {
     transition: 0.3s;
 }
 
+* {
+    cursor: cursor: url("../assets/shapes/cursor-02.svg"), auto;
+}
+
 *:hover {
     
-    cursor: url("../assets/shapes/hans-02.svg"), auto;
+    cursor: url("../assets/shapes/cursor-02.svg"), auto;
 
 }
 
 *:active {
     
-    cursor: url("../assets/shapes/hans-03.svg"), auto;
+    cursor: url("../assets/shapes/cursor-02.svg"), auto;
 
 }
 
 body {
     margin: 0;
     padding: 0;
-   /* background-image: url("../assets/img/bg-grid/2-noedge.svg");*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top left;
-    background-color: rgb(20,20,20);
+    background-color: black;
+
 }
 
 
@@ -38,24 +56,51 @@ body {
 #introtext {
 
     padding: 32px;
-    background-color: white;
+    background-color: #E2C044;
     overflow-y: hidden;
-
-
 }
 
-#introtext:hover {
 
-    cursor: grab;
-
+.flex {
+    display: grid;
+    width: 70%;
+    height: auto;
+    grid-template-columns: [one] 1fr [two]1fr;
+    grid-column-gap: 32px;
+    margin: 0 auto;
 }
+
+.introp {
+    font-family: mediumT;
+    font-size: 16px;
+    line-height: 22px;
+    color: #6247AA;
+    padding: 0px;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+.full {
+   width: 70%;
+    margin: 0 auto;
+}
+
+.term {
+    font-family: regularT;
+    font-size: 56px;
+    margin-top: 64px;
+    margin-bottom: 64px;
+    color: black;
+}
+
+
+
+
 
 #introtext2 {
 
     padding: 32px;
-   /* background-color: rgba(100,100,100,0.2);*/
-    background-color: white;
-
+   background-color: white;
 
 }
 
@@ -68,36 +113,9 @@ canvas {
     width: 100vw;
     height: 100vh;
     position: absolute;
-
-
 }
 
-@font-face {
-    font-family: berlingske;
-    src:url("../assets/fonts/Bagnard.otf");
 
-
-
-}
-
-@font-face {
-
-    font-family: phonetics;
-    src: url("../assets/academica.woff") format("woff");
-
-
-}
-
-#phonetics {
-
-    font-family: phonetics;
-    font-size: 10px;
-    line-height: 24px;
-    position: relative;
-    vertical-align: middle;
-    color: red;
-
-}
 
 .att {
 
@@ -105,31 +123,12 @@ canvas {
     !important
 }
 
-.introp {
-    font-family: phonetics;
-    font-size: 16px;
-    line-height: 22px;
-    color: whitesmoke;
-    padding: 0px;
-    margin: 0px;
-    width: 60%
-}
-
-.workedwith {
-    font-family: lapidar;
-    font-size: 10px;
-    line-height: 14px;
-    color: whitesmoke;
-    width: 40%;
-}
-
-
 
 #backgroundshit {
 
     position: absolute;
     z-index: -100;
-    color: white;
+    color: blue;
     font-family: berlingske;
     font-size: 100px;
     
@@ -141,8 +140,8 @@ canvas {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    background-color: rgba(0,0,0,0) !important;
     padding: 0px;
+    border: 1px solid blue;
 }
 
 
@@ -181,8 +180,7 @@ canvas {
     position: absolute;
     top: 10%;
     width: 30%;
-    right: 5%;
-    
+    right: 5%;   
 }
 
 #innerwrapper4 {
@@ -193,23 +191,6 @@ canvas {
     padding: 32px;
 }
 
-.body {
-
-    font-family: lapidar;
-    color:  white;
-
-    font-size: 10px;
-}
-
-@font-face {
-    
-    src: url("../assets/Lapidar-Light.otf");
-
-
-
-    font-family: txt;
-    
-}
 
 .current {
     font-family: txt;
@@ -251,7 +232,12 @@ canvas {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
   
+}
+.flexVert img {
+    height: auto;
+    width: 100%;
 }
 
 .arrow {
@@ -284,7 +270,9 @@ position: absolute;
 
 #introtext4 {
     
-     background-color: rgba(100,100,100,0.2);
+     background-color: white;
+    visibility: hidden;
+    display: none;
 
 
 }

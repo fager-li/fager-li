@@ -13,6 +13,8 @@ const visibleHeightAtZDepth = ( depth, camera ) => {
   return 2 * Math.tan( vFOV / 2 ) * Math.abs( depth );
 };
 
+const divFactor = 3.45;
+
 const visibleWidthAtZDepth = ( depth, camera ) => {
   const height = visibleHeightAtZDepth( depth, camera );
   return height * camera.aspect;
@@ -118,7 +120,7 @@ var scene = new THREE.Scene();
 //create parent
 parent = new THREE.CSS3DObject(filler);
 scene.add(parent);
-parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/2;
+parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/divFactor;
 parent.rotation.y = -1.5708;
 
 window.addEventListener('resize', function(){
@@ -132,14 +134,14 @@ var pivot3 = new THREE.CSS3DObject(filler);
 var pivot4 = new THREE.CSS3DObject(filler);
 
 pivot1.rotation.y = 0;
-pivot2.rotation.y = 1.5708;
-pivot3.rotation.y = 3.14159;
+pivot2.rotation.y = 2.0944;
+pivot3.rotation.y = -2.0944;
 pivot4.rotation.y = 4.71239;
 
 parent.add(pivot1);
 parent.add(pivot2);
 parent.add(pivot3);
-parent.add(pivot4);
+//parent.add(pivot4);
 
 //grab HTML elements, set styling
 var domElement = document.getElementById("introtext");
@@ -192,17 +194,17 @@ plane2 = new THREE.CSS3DObject(domElement2);
 plane3 = new THREE.CSS3DObject(domElement3);
 plane4 = new THREE.CSS3DObject(domElement4);
 
-plane1.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
-plane2.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
-plane3.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
-plane4.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+plane1.position.z = (visibleWidthAtZDepth(zdepth, camera)/divFactor)-1;
+plane2.position.z = (visibleWidthAtZDepth(zdepth, camera)/divFactor)-1;
+plane3.position.z = (visibleWidthAtZDepth(zdepth, camera)/divFactor)-1;
+plane4.position.z = (visibleWidthAtZDepth(zdepth, camera)/divFactor)-1;
 
 window.addEventListener('resize', function(){
     
-plane1.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
-plane2.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
-plane3.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
-plane4.position.z = (visibleWidthAtZDepth(zdepth, camera)/2)-1;
+plane1.position.z = (visibleWidthAtZDepth(zdepth, camera)/divFactor)-1;
+plane2.position.z = (visibleWidthAtZDepth(zdepth, camera)/divFactor)-1;
+plane3.position.z = (visibleWidthAtZDepth(zdepth, camera)/divFactor)-1;
+plane4.position.z = (visibleWidthAtZDepth(zdepth, camera)/divFactor)-1;
 
     
 });
@@ -265,7 +267,9 @@ var portfolioData = [
     
     ]
 
-//right field
+
+//slideshow
+/*//right field
 $('#right').click(function() {
     
     if (number+1 == portfolioData.length) {
@@ -311,6 +315,6 @@ document.getElementById('desc').textContent = portfolioData[number].desc;
 
 document.getElementById('port').style.backgroundImage = portfolioData[number].image; 
 document.getElementById('title').textContent = portfolioData[number].title; 
-document.getElementById('desc').textContent = portfolioData[number].desc; 
+document.getElementById('desc').textContent = portfolioData[number].desc; */
 
 
