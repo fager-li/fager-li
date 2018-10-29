@@ -9,7 +9,8 @@
 
 @font-face {
     font-family: regularT;
-    src:url("../assets/fonts/theinhardt-regular.ttf") format("truetype");
+    src:url("../assets/academica.woff") format("woff")
+
 
 }
 
@@ -25,21 +26,9 @@ body {
     transition: 0.3s;
 }
 
-* {
-    cursor: cursor: url("../assets/shapes/cursor-02.svg"), auto;
-}
 
-*:hover {
-    
-    cursor: url("../assets/shapes/cursor-02.svg"), auto;
 
-}
 
-*:active {
-    
-    cursor: url("../assets/shapes/cursor-02.svg"), auto;
-
-}
 
 body {
     margin: 0;
@@ -47,7 +36,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top left;
-    background-color: darkgray;
+    background-color: #656565;
 
 }
 
@@ -55,10 +44,9 @@ body {
 
 #introtext {
 
-    padding: 32px;
-
+    padding: 48px;
     overflow-y: hidden;
-     background-color:#EEEE46;
+     background-color:#9E9EFF;
 }
 
 
@@ -66,32 +54,44 @@ body {
     display: grid;
     width: 70%;
     height: auto;
-    grid-template-columns: [one] 1fr [two]1fr;
+    grid-template-columns: [one] 50% [two] 50%;
     grid-column-gap: 32px;
     margin: 0 auto;
 }
 
 .introp {
     font-family: mediumT;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 8px;
+    line-height: 10px;
     color: black;
     padding: 0px;
-    margin: 0px 0px 0px 0px;
+    margin: 32px 0px 0px 0px;
     width: 100%;
+    grid-column: span 1;
 }
 
-.full {
-   width: 70%;
-    margin: 0 auto;
+.introcaption {
+    grid-column: span 2;
+    font-family: mediumT;
+    font-size: 12px;
+    text-align: center;
+    margin: 0px;
 }
+
 
 .term {
     font-family: regularT;
     font-size: 56px;
-    margin-top: 64px;
-    margin-bottom: 64px;
+    margin-top: 32px;
+    margin-bottom: 16px;
     color: black;
+}
+
+.linksContainer {
+    grid-column: span 2;
+    margin: 0 auto;
+    text-align: center;
+    font-family: mediumT;
 }
 
 
@@ -106,7 +106,7 @@ body {
 }
 
 #introtext3 {
-    background-color: #4655EE;
+    background-color: #D49494;
 }
 
 canvas {
@@ -119,21 +119,17 @@ canvas {
 
 
 .att {
-
     font-family: phonetics;
-    !important
+
 }
 
 
 #backgroundshit {
-
     position: absolute;
     z-index: -100;
     color: blue;
     font-family: berlingske;
     font-size: 100px;
-    
-
 }
 
 
