@@ -25,7 +25,7 @@ const visibleWidthAtZDepth = ( depth, camera ) => {
 //initial variables
 var parent, plane1, plane2, plane3,plane4, pivot1, pivot2, pivot3, pivot4;
 var filler = document.getElementById('filler');
-var zdepth = -500;
+var zdepth = -1000;
 
 //set the renderer
 var csrenderer = new THREE.CSS3DRenderer();
@@ -124,7 +124,7 @@ parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/divFactor;
 parent.rotation.y = -1.5708;
 
 window.addEventListener('resize', function(){
-parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/2;
+parent.position.z = zdepth-visibleWidthAtZDepth(zdepth, camera)/divFactor;
 });
 
 //Create pivots
@@ -183,6 +183,7 @@ domElement4.style.width = visibleWidthAtZDepth( zdepth, camera) + "px";
 domElement4.style.height = visibleHeightAtZDepth( zdepth, camera) + "px";
     
 console.log("height:" + domElement4.style.height);
+    console.log("width:" + domElement4.style.width);
     
 });
 
@@ -243,11 +244,7 @@ function render() {
 //site navigation
 
 var number = 0;
-//function getURL(index) {
-// 
-//    return "../img/" + index + ".png";
-//    
-//}
+
 var portfolioData = [
     {title:"Fiktivt Forlag", image:'url("../img/2.png")', desc:"Website and identity for Fiktivt Forlag, student publisher."},
     
