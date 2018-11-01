@@ -14,7 +14,7 @@ const visibleHeightAtZDepth = ( depth, camera ) => {
 };
 
 const divFactor = 3.45;
-var windowheight = (window.innerHeight*1.5)*-1;
+var windowheight = (window.innerHeight)*-1;
 const visibleWidthAtZDepth = ( depth, camera ) => {
   const height = visibleHeightAtZDepth( depth, camera );
   return height * camera.aspect;
@@ -34,7 +34,7 @@ csrenderer.setSize(window.innerWidth, window.innerHeight);
 
 window.addEventListener('resize', function(){
     csrenderer.setSize(window.innerWidth, window.innerHeight);
-    windowheight = (window.innerHeight*1.5)*-1;
+    windowheight = (window.innerHeight)*-1;
     zdepth = windowheight;
 });
 
