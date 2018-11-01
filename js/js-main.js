@@ -14,7 +14,7 @@ const visibleHeightAtZDepth = ( depth, camera ) => {
 };
 
 const divFactor = 3.45;
-
+var windowheight = (window.innerHeight*1.5)*-1;
 const visibleWidthAtZDepth = ( depth, camera ) => {
   const height = visibleHeightAtZDepth( depth, camera );
   return height * camera.aspect;
@@ -25,7 +25,7 @@ const visibleWidthAtZDepth = ( depth, camera ) => {
 //initial variables
 var parent, plane1, plane2, plane3,plane4, pivot1, pivot2, pivot3, pivot4;
 var filler = document.getElementById('filler');
-var zdepth = -1000;
+var zdepth = windowheight;
 
 //set the renderer
 var csrenderer = new THREE.CSS3DRenderer();
@@ -33,7 +33,9 @@ document.body.appendChild( csrenderer.domElement );
 csrenderer.setSize(window.innerWidth, window.innerHeight);
 
 window.addEventListener('resize', function(){
-csrenderer.setSize(window.innerWidth, window.innerHeight);
+    csrenderer.setSize(window.innerWidth, window.innerHeight);
+    windowheight = (window.innerHeight*1.5)*-1;
+    zdepth = windowheight;
 });
 
 //camera
