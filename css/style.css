@@ -56,7 +56,6 @@ body {
     width: 70%;
     height: auto;
     grid-template-columns: [one] 50% [two] 50%;
-    grid-template-rows: [one] auto [two] auto [three] auto [four] auto;
     grid-column-gap: 32px;
     margin: 0 auto;
 }
@@ -67,13 +66,22 @@ body {
     line-height: 17px;
     color: black;
     padding: 0px;
-    margin: 32px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     width: 100%;
-    grid-column: span 1;
+}
+
+.bio {
+    font-family: regularT;
+    font-size: 26px;
+    line-height: 32px;
+    color: black;
+    padding: 0px;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
 }
 
 .introcaption {
-    grid-column: span 2;
+    grid-column: span 1;
     font-family: mediumT;
     font-size: 14px;
     text-align: left;
@@ -90,15 +98,15 @@ body {
     grid-column: span 1;
 }
 
-.one {
-    grid-row: two;
-}
-.two {
-    grid-row: three;
-}
+
 
 .left {
+    grid-column: 1;
   
+}
+
+.right {
+    
 }
 
 .linksContainer {
