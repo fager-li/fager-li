@@ -9,7 +9,8 @@
 
 @font-face {
     font-family: regularT;
-    src:url("../assets/academica.woff") format("woff")
+    src:url("../assets/fonts/Theinhardt-Regular.ttf") format("truetype");
+
 
 
 }
@@ -55,14 +56,15 @@ body {
     width: 70%;
     height: auto;
     grid-template-columns: [one] 50% [two] 50%;
+    grid-template-rows: [one] auto [two] auto [three] auto [four] auto;
     grid-column-gap: 32px;
     margin: 0 auto;
 }
 
 .introp {
     font-family: mediumT;
-    font-size: 8px;
-    line-height: 10px;
+    font-size: 14px;
+    line-height: 17px;
     color: black;
     padding: 0px;
     margin: 32px 0px 0px 0px;
@@ -73,18 +75,30 @@ body {
 .introcaption {
     grid-column: span 2;
     font-family: mediumT;
-    font-size: 12px;
-    text-align: center;
+    font-size: 14px;
+    text-align: left;
     margin: 0px;
 }
 
 
 .term {
     font-family: regularT;
-    font-size: 56px;
-    margin-top: 32px;
-    margin-bottom: 16px;
+    font-size: 72px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     color: black;
+    grid-column: span 1;
+}
+
+.one {
+    grid-row: two;
+}
+.two {
+    grid-row: three;
+}
+
+.left {
+  
 }
 
 .linksContainer {
@@ -98,7 +112,7 @@ body {
 a {
     color: black;
     margin: 8px;
-    font-size: 12px;
+    font-size: 14px;
     
 }
 
