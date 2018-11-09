@@ -1,4 +1,4 @@
-const terms =["UX", "Design","Design", "Graphic", "Digital", "Visual","Psycho", "Compu", "Design", "Design", "Shit", "Junior", "Creative", "Strategic", "Great", "Design", "System"];
+const terms =["UX", "Design","Design", "Graphic", "Digital", "Visual","Psycho", "Compu", "Design", "Design", "Shit", "Junior", "Creative", "Strategic", "Great", "Design", "System", "Isaac",];
 
 const bigwords = document.getElementsByClassName("term");
 

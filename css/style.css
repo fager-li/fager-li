@@ -18,7 +18,9 @@
 @font-face {
 
     font-family: mediumT;
-    src: url("../assets/fonts/Theinhardt-Medium.ttf") format("truetype");
+    src:url("../assets/academica.woff") format("woff");
+
+
 
 
 }
@@ -42,10 +44,8 @@ body {
 }
 
 
-
 #introtext {
-
-    padding: 48px;
+    padding: 40px;
     overflow-y: hidden;
      background-color:#9E9EFF;
 }
@@ -53,74 +53,98 @@ body {
 
 .flex {
     display: grid;
-    width: 70%;
+    width: 100%;
     height: auto;
     grid-template-columns: [one] 50% [two] 50%;
     grid-column-gap: 32px;
     margin: 0 auto;
+    padding-top: 0px;
 }
 
-.introp {
+.cv {
     font-family: mediumT;
     font-size: 14px;
     line-height: 17px;
     color: black;
     padding: 0px;
-    margin: 0px 0px 0px 0px;
+    margin: 32px 0px 0px 0px;
     width: 100%;
 }
 
 .bio {
-    font-family: regularT;
-    font-size: 26px;
-    line-height: 32px;
+    font-family: mediumT;
+    font-size: 32px;
+    line-height: 40px;
     color: black;
     padding: 0px;
     margin: 0px 0px 0px 0px;
     width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    
 }
 
 .introcaption {
     grid-column: span 1;
-    font-family: mediumT;
+    font-family: regularT;
     font-size: 14px;
     text-align: left;
-    margin: 0px;
+    margin: 0px 0px 32px 0px;
 }
 
 
 .term {
     font-family: regularT;
-    font-size: 72px;
+    font-size: 132px;
     margin-top: 0px;
     margin-bottom: 0px;
     color: black;
     grid-column: span 1;
+      color: #9E9EFF;;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }
 
+.bottom {
+    margin-bottom: 32px;
+}
+
+.top {
+    margin-top: 32px;
+}
 
 
 .left {
-    grid-column: 1;
+    grid-column: one;
   
 }
 
+.two-left {
+    grid-column: one / span 2;
+
+}
 .right {
-    
+    grid-column: two;
+    overflow: hidden;
 }
 
 .linksContainer {
-    grid-column: span 2;
+    grid-column: one;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     font-family: mediumT;
-    margin: 24px 0px 0px 0px;
+    margin: 48px 0px 0px 0px;
 }
 
 a {
     color: black;
     margin: 8px;
-    font-size: 14px;
+    font-size: 32px;
+    text-decoration: none;
+    border-bottom: 1px solid black
     
 }
 
