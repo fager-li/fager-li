@@ -15,18 +15,20 @@
 
 }
 
+.pil {
+    font-family: regularT;
+}
+
 @font-face {
 
     font-family: mediumT;
     src:url("../assets/academica.woff") format("woff");
 
-
-
-
 }
 
 body {
     transition: 0.3s;
+    cursor: url("../assets/img/cursor.png"), auto;
 }
 
 
@@ -40,14 +42,13 @@ body {
     background-repeat: no-repeat;
     background-position: top left;
     background-color: #656565;
-
 }
 
 
 #introtext {
     padding: 40px;
-    overflow-y: hidden;
-     background-color:#9E9EFF;
+    overflow-y: visible;
+     background-color:#63639F;
 }
 
 
@@ -55,7 +56,7 @@ body {
     display: grid;
     width: 100%;
     height: auto;
-    grid-template-columns: [one] 50% [two] 50%;
+    grid-template-columns: [one] 1fr [two] 1fr;
     grid-column-gap: 32px;
     margin: 0 auto;
     padding-top: 0px;
@@ -74,13 +75,14 @@ body {
 .bio {
     font-family: mediumT;
     font-size: 32px;
+    text-indent: 32px;
     line-height: 40px;
     color: black;
     padding: 0px;
     margin: 0px 0px 0px 0px;
     width: 100%;
-    display: inline-block;
     overflow: hidden;
+    position: relative;
     
 }
 
@@ -98,9 +100,8 @@ body {
     font-size: 132px;
     margin-top: 0px;
     margin-bottom: 0px;
-    color: black;
+    color: white;
     grid-column: span 1;
-      color: #9E9EFF;;
   text-shadow:
    -1px -1px 0 #000,  
     1px -1px 0 #000,
@@ -136,7 +137,9 @@ body {
     margin: 0 auto;
     text-align: left;
     font-family: mediumT;
-    margin: 48px 0px 0px 0px;
+    margin: 48px 0px 40px 0px;
+    position: absolute;
+    bottom: 0;
 }
 
 a {
