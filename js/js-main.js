@@ -144,7 +144,8 @@ var slowingFactor = 0.25;
 
 
     function gnCallBack(data) {
-document.getElementById("testingthis").innerHTML = data.do.gamma;
+$('#testingthis').val = data.do.gamma;
+        console.log(data.do.gamma);
     }
 //click-and-drag for desktop
 document.addEventListener( 'mousedown', onDocumentMouseDown, false );
