@@ -74,6 +74,9 @@ var slowingFactor = 0.25;
     var gn;
 
     function init_gn() {
+      var args = {
+        logger: logger
+      };
 
       gn = new GyroNorm();
 
@@ -115,6 +118,25 @@ var slowingFactor = 0.25;
       gn.start(gnCallBack);
     }
 
+    function gnCallBack(data) {
+      $('#do_alpha').val(data.do.alpha);
+      $('#do_beta').val(data.do.beta);
+      $('#do_gamma').val(data.do.gamma);
+
+      $('#dm_x').val(data.dm.x);
+      $('#dm_y').val(data.dm.y);
+      $('#dm_z').val(data.dm.z);
+
+      $('#dm_gx').val(data.dm.gx);
+      $('#dm_gy').val(data.dm.gy);
+      $('#dm_gz').val(data.dm.gz);
+
+      $('#dm_alpha').val(data.dm.alpha);
+      $('#dm_beta').val(data.dm.beta);
+      $('#dm_gamma').val(data.dm.gamma);
+    $("#testingthis").innerHTML = data.do.gamma;
+    }
+
     function norm_gn() {
       gn.normalizeGravity(true);
     }
@@ -143,10 +165,6 @@ var slowingFactor = 0.25;
 //gn stop
 
 
-    function gnCallBack(data) {
-$('#testingthis').innerHTML = data.do.gamma;
-        console.log(data.do.gamma);
-    }
 //click-and-drag for desktop
 document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 
