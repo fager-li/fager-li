@@ -81,8 +81,8 @@ gn.init().then(function(){
     // Process:
     // data.do.alpha	( deviceorientation event alpha value )
     // data.do.beta		( deviceorientation event beta value )
-    gamma =  data.do.gamma;
-      document.getElementById("testingthis").innerHTML = gamma;
+    console.log(data.do.gamma);
+
     // data.do.absolute	( deviceorientation event absolute value )
 
     // data.dm.x		( devicemotion event acceleration x value )
