@@ -1,3 +1,5 @@
+//this code is shit and an amalgamation of various libraries duct-taped together. If you ask me how it works and why i'll have already forgotten.
+
 
 //calculate full-width/height view
 const visibleHeightAtZDepth = ( depth, camera ) => {
@@ -67,7 +69,41 @@ var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 
 var slowingFactor = 0.25;
+var gamma;
 
+//gyronorm for mobile
+var gn = new GyroNorm();
+
+gn.init().then(function(){
+  gn.start(function(data){
+      
+    
+    // Process:
+    // data.do.alpha	( deviceorientation event alpha value )
+    // data.do.beta		( deviceorientation event beta value )
+    gamma =  data.do.gamma;
+    // data.do.absolute	( deviceorientation event absolute value )
+
+    // data.dm.x		( devicemotion event acceleration x value )
+    // data.dm.y		( devicemotion event acceleration y value )
+    // data.dm.z		( devicemotion event acceleration z value )
+
+    // data.dm.gx		( devicemotion event accelerationIncludingGravity x value )
+    // data.dm.gy		( devicemotion event accelerationIncludingGravity y value )
+    // data.dm.gz		( devicemotion event accelerationIncludingGravity z value )
+
+    // data.dm.alpha	( devicemotion event rotationRate alpha value )
+    // data.dm.beta		( devicemotion event rotationRate beta value )
+    // data.dm.gamma	( devicemotion event rotationRate gamma value )
+  });
+}).catch(function(e){
+  // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
+});
+
+document.getElementById("testingthis").innerHTML = gamma;
+
+
+//click-and-drag for desktop
 document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 
 
