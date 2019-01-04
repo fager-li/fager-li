@@ -71,97 +71,31 @@ var windowHalfY = window.innerHeight / 2;
 var slowingFactor = 0.25;
 
 //gn start
-    var gn;
+var gn = new GyroNorm();
 
-    function init_gn() {
-      var args = {
-        logger: logger
-      };
+gn.init().then(function(){
+  gn.start(function(data){
+    // Process:
+    // data.do.alpha	( deviceorientation event alpha value )
+    // data.do.beta		( deviceorientation event beta value )
+    // data.do.gamma	( deviceorientation event gamma value )
+    // data.do.absolute	( deviceorientation event absolute value )
+      $("#testingthis").innerHTML = data.do.gamma;
+    // data.dm.x		( devicemotion event acceleration x value )
+    // data.dm.y		( devicemotion event acceleration y value )
+    // data.dm.z		( devicemotion event acceleration z value )
 
-      gn = new GyroNorm();
+    // data.dm.gx		( devicemotion event accelerationIncludingGravity x value )
+    // data.dm.gy		( devicemotion event accelerationIncludingGravity y value )
+    // data.dm.gz		( devicemotion event accelerationIncludingGravity z value )
 
-      gn.init(args).then(function() {
-        var isAvailable = gn.isAvailable();
-        if(!isAvailable.deviceOrientationAvailable) {
-          logger({message:'Device orientation is not available.'});
-        }
-
-        if(!isAvailable.accelerationAvailable) {
-          logger({message:'Device acceleration is not available.'});
-        }
-
-        if(!isAvailable.accelerationIncludingGravityAvailable) {
-          logger({message:'Device acceleration incl. gravity is not available.'});
-        } 
-
-        if(!isAvailable.rotationRateAvailable) {
-          logger({message:'Device rotation rate is not available.'});
-        }
-
-        start_gn();
-      }).catch(function(e){
-
-        console.log(e);
-        
-      });
-    }
-
-    function logger(data) {
-      $('#error-message').append(data.message + "\n");
-    }
-
-    function stop_gn() {
-      gn.stop();
-    }
-
-    function start_gn() {
-      gn.start(gnCallBack);
-    }
-
-    function gnCallBack(data) {
-      $('#do_alpha').val(data.do.alpha);
-      $('#do_beta').val(data.do.beta);
-      $('#do_gamma').val(data.do.gamma);
-
-      $('#dm_x').val(data.dm.x);
-      $('#dm_y').val(data.dm.y);
-      $('#dm_z').val(data.dm.z);
-
-      $('#dm_gx').val(data.dm.gx);
-      $('#dm_gy').val(data.dm.gy);
-      $('#dm_gz').val(data.dm.gz);
-
-      $('#dm_alpha').val(data.dm.alpha);
-      $('#dm_beta').val(data.dm.beta);
-      $('#dm_gamma').val(data.dm.gamma);
-    $("#testingthis").innerHTML = data.do.gamma;
-    }
-
-    function norm_gn() {
-      gn.normalizeGravity(true);
-    }
-
-    function org_gn() {
-      gn.normalizeGravity(false);
-    }
-
-    function set_head_gn() {
-      gn.setHeadDirection();
-    }
-
-    function showDO() {
-      $('#do').show();
-      $('#dm').hide();
-      $('#btn-dm').removeClass('selected');
-      $('#btn-do').addClass('selected');
-    }
-
-    function showDM() {
-      $('#dm').show();
-      $('#do').hide();
-      $('#btn-do').removeClass('selected');
-      $('#btn-dm').addClass('selected');
-    }
+    // data.dm.alpha	( devicemotion event rotationRate alpha value )
+    // data.dm.beta		( devicemotion event rotationRate beta value )
+    // data.dm.gamma	( devicemotion event rotationRate gamma value )
+  });
+}).catch(function(e){
+  // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
+});
 //gn stop
 
 
