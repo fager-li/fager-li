@@ -69,41 +69,83 @@ var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 
 var slowingFactor = 0.25;
-var gamma;
 
-//gyronorm for mobile
-var gn = new GyroNorm();
+//gn start
+    var gn;
 
-gn.init().then(function(){
-  gn.start(function(data){
-      
-    
-    // Process:
-    // data.do.alpha	( deviceorientation event alpha value )
-    // data.do.beta		( deviceorientation event beta value )
-    gamma = data.do.gamma;
-      
-    // data.do.absolute	( deviceorientation event absolute value )
+    function init_gn() {
 
-    // data.dm.x		( devicemotion event acceleration x value )
-    // data.dm.y		( devicemotion event acceleration y value )
-    // data.dm.z		( devicemotion event acceleration z value )
+      gn = new GyroNorm();
 
-    // data.dm.gx		( devicemotion event accelerationIncludingGravity x value )
-    // data.dm.gy		( devicemotion event accelerationIncludingGravity y value )
-    // data.dm.gz		( devicemotion event accelerationIncludingGravity z value )
+      gn.init(args).then(function() {
+        var isAvailable = gn.isAvailable();
+        if(!isAvailable.deviceOrientationAvailable) {
+          logger({message:'Device orientation is not available.'});
+        }
 
-    // data.dm.alpha	( devicemotion event rotationRate alpha value )
-    // data.dm.beta		( devicemotion event rotationRate beta value )
-    // data.dm.gamma	( devicemotion event rotationRate gamma value )
-  });
-}).catch(function(e){
-  // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
-});
+        if(!isAvailable.accelerationAvailable) {
+          logger({message:'Device acceleration is not available.'});
+        }
+
+        if(!isAvailable.accelerationIncludingGravityAvailable) {
+          logger({message:'Device acceleration incl. gravity is not available.'});
+        } 
+
+        if(!isAvailable.rotationRateAvailable) {
+          logger({message:'Device rotation rate is not available.'});
+        }
+
+        start_gn();
+      }).catch(function(e){
+
+        console.log(e);
+        
+      });
+    }
+
+    function logger(data) {
+      $('#error-message').append(data.message + "\n");
+    }
+
+    function stop_gn() {
+      gn.stop();
+    }
+
+    function start_gn() {
+      gn.start(gnCallBack);
+    }
+
+    function norm_gn() {
+      gn.normalizeGravity(true);
+    }
+
+    function org_gn() {
+      gn.normalizeGravity(false);
+    }
+
+    function set_head_gn() {
+      gn.setHeadDirection();
+    }
+
+    function showDO() {
+      $('#do').show();
+      $('#dm').hide();
+      $('#btn-dm').removeClass('selected');
+      $('#btn-do').addClass('selected');
+    }
+
+    function showDM() {
+      $('#dm').show();
+      $('#do').hide();
+      $('#btn-do').removeClass('selected');
+      $('#btn-dm').addClass('selected');
+    }
+//gn stop
 
 
-
-document.getElementById("testingthis").innerHTML = gamma;
+    function gnCallBack(data) {
+document.getElementById("testingthis").innerHTML = data.do.gamma;
+    }
 //click-and-drag for desktop
 document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 
