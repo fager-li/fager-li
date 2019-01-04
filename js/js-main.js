@@ -82,6 +82,7 @@ gn.init().then(function(){
     // data.do.alpha	( deviceorientation event alpha value )
     // data.do.beta		( deviceorientation event beta value )
     gamma =  data.do.gamma;
+      document.getElementById("testingthis").innerHTML = gamma;
     // data.do.absolute	( deviceorientation event absolute value )
 
     // data.dm.x		( devicemotion event acceleration x value )
@@ -100,7 +101,6 @@ gn.init().then(function(){
   // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
 });
 
-document.getElementById("testingthis").innerHTML = gamma;
 
 
 //click-and-drag for desktop
