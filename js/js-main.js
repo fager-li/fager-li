@@ -81,7 +81,7 @@ gn.init().then(function(){
     // Process:
     // data.do.alpha	( deviceorientation event alpha value )
     // data.do.beta		( deviceorientation event beta value )
-    console.log(data.do.gamma);
+    gamma = data.do.gamma;
 
     // data.do.absolute	( deviceorientation event absolute value )
 
@@ -102,7 +102,7 @@ gn.init().then(function(){
 });
 
 
-
+document.getElementById("testingthis").innerHTML = gamma;
 //click-and-drag for desktop
 document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 
