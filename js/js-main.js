@@ -248,7 +248,17 @@ scene.add(parent, camera);
 
 //Push to renderer
 render();
-function render() {
+if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ ){
+
+} else {
+    
+    function render() {
 	requestAnimationFrame(render);
     targetRotationY = targetRotationY * (1 - slowingFactor);
     targetRotationX = targetRotationX * (1 - slowingFactor);
@@ -258,7 +268,9 @@ function render() {
     csrenderer.render(scene, camera);
 
 	
+    }
 }
+
 
 //site navigation
 
