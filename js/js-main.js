@@ -247,7 +247,7 @@ pivot4.add(plane4);
 scene.add(parent, camera);
 
 //Push to renderer
-render();
+
 if( navigator.userAgent.match(/Android/i)
  || navigator.userAgent.match(/webOS/i)
  || navigator.userAgent.match(/iPhone/i)
@@ -270,7 +270,7 @@ if( navigator.userAgent.match(/Android/i)
 	
     }
 }
-
+render();
 
 //site navigation
 
