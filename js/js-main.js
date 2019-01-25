@@ -83,6 +83,7 @@ gn.init().then(function(){
 //gn stop
 function gnCallBack(data) {
  document.getElementById("testingthis").innerHTML = data.do.gamma;
+    return data.do.gamma;
 }
 //click-and-drag for desktop
 document.addEventListener( 'mousedown', onDocumentMouseDown, false );
@@ -255,6 +256,16 @@ if( navigator.userAgent.match(/Android/i)
  || navigator.userAgent.match(/iPod/i)
  || navigator.userAgent.match(/BlackBerry/i)
  ){
+    
+    function render() {
+	requestAnimationFrame(render);
+    parent.rotation.y += gnCallBack();
+    //console.log(targetRotationX);
+
+    csrenderer.render(scene, camera);
+
+	
+    }
 
 } else {
     
